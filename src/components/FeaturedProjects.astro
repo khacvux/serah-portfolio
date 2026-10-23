@@ -1,100 +1,100 @@
 ---
-interface Project {
-  id: string;
+interface BAProject {
   number: string;
   title: string;
-  category: string;
-  tags: string[];
+  domain: string;
+  tools: string[];
   year: string;
-  description: string;
+  problem: string;
+  solution: string;
+  impact: string;
   image: string;
-  link: string;
 }
 
-const projects: Project[] = [
+const projects: BAProject[] = [
   {
-    id: 'wagamama',
     number: '01',
-    title: 'Wagamama Website Redesign',
-    category: 'E-COMMERCE & ART DIRECTION',
-    tags: ['UI DESIGN', 'UX DESIGN', 'ART DIRECTION'],
-    year: '2024',
-    description: "Reimagining the Japanese dining chain's .com experience with bespoke Click & Collect flow and brutalist Swiss-inspired typography.",
-    image: '/assets/projects/wagamama.jpg',
-    link: '#',
-  },
-  {
-    id: 'verizon',
-    number: '02',
-    title: 'Verizon Stream TV',
-    category: 'CONNECTED TV & DESIGN SYSTEM',
-    tags: ['UI DESIGN', 'DESIGN SYSTEM', 'OS'],
-    year: '2023',
-    description: "Architecting a unified, intuitive interface for next-gen connected television platforms with responsive micro-interactions.",
+    title: 'Sales Performance & Revenue Intelligence Dashboard',
+    domain: 'RETAIL & E-COMMERCE',
+    tools: ['POWER BI', 'SQL', 'MOKKUP.AI', 'KPI DEFINITION'],
+    year: '2025',
+    problem: 'Regional sales teams lacked unified visibility into product line profitability and discount variance across 12 territories.',
+    solution: 'Engineered KPI wireframes in Mokkup.ai, structured complex SQL aggregations, and deployed an interactive Power BI dashboard tracking revenue velocity.',
+    impact: 'Identified 3 underperforming categories, optimizing discount strategies to recover $180K in annual margin leakage.',
     image: '/assets/projects/verizon.jpg',
-    link: '#',
   },
   {
-    id: 'bt',
+    number: '02',
+    title: 'Customer Satisfaction & Retention Analysis (CSAT / NPS)',
+    domain: 'SAAS & DIGITAL SERVICES',
+    tools: ['TABLEAU', 'PYTHON', 'EXCEL', 'CHURN PREDICTION'],
+    year: '2024',
+    problem: 'SaaS platform experienced a 24% customer churn within the first 60 days of onboarding with vague exit survey data.',
+    solution: 'Conducted cohort churn modeling, mapped customer touchpoints, and built diagnostic dashboards correlating feature adoption with Net Promoter Score.',
+    impact: 'Discovered critical friction in billing setup; redesigned onboarding flow reduced early churn by 18%.',
+    image: '/assets/projects/wagamama.jpg',
+  },
+  {
     number: '03',
-    title: 'BT Future Customer Journey',
-    category: 'EXPERIENCE STRATEGY',
-    tags: ['UX DESIGN', 'ART DIRECTION', 'STRATEGY'],
-    year: '2023',
-    description: 'Transforming telecommunications service journeys through modular UI libraries, conversational touchpoints, and clear visual hierarchy.',
+    title: 'Operational Workflow Optimization & Process Automation',
+    domain: 'SUPPLY CHAIN & LOGISTICS',
+    tools: ['BPMN 2.0', 'JIRA', 'AS-IS / TO-BE', 'ROOT CAUSE'],
+    year: '2024',
+    problem: 'Order fulfillment suffered from manual approval bottlenecks and disconnected ERP spreadsheets, delaying shipments by 4.2 days.',
+    solution: 'Mapped comprehensive AS-IS vs. TO-BE workflows using BPMN 2.0 standards, authored Agile user stories in Jira, and facilitated cross-team sprint planning.',
+    impact: 'Automated 4 manual handover checkpoints, cutting average order cycle time from 4.2 days to under 24 hours.',
     image: '/assets/projects/bt.jpg',
-    link: '#',
   },
   {
-    id: 'nielsen',
     number: '04',
-    title: 'Nielsen IQ Enterprise Redesign',
-    category: 'DATA VISUALIZATION & B2B',
-    tags: ['UI DESIGN', 'DATA VIZ', 'DESIGN SYSTEM'],
-    year: '2022',
-    description: 'Modernizing complex market analytics with high-density data visualizations, streamlined dashboards, and dark-mode optimization.',
-    image: '/assets/projects/nielsen.jpg',
-    link: '#',
-  },
-  {
-    id: 'pnc',
-    number: '05',
-    title: 'PNC Bank Digital Platform',
-    category: 'FINTECH & BANKING',
-    tags: ['UI DESIGN', 'UX RESEARCH', 'FINTECH'],
-    year: '2022',
-    description: 'Defining an accessible, high-trust digital banking aesthetic that humanizes wealth management for diverse demographics.',
+    title: 'Product Launch Feasibility & Requirements Document (BRD)',
+    domain: 'FINTECH & BANKING',
+    tools: ['BRD / FRD', 'CONFLUENCE', 'FIGMA', 'STAKEHOLDER MGMT'],
+    year: '2024',
+    problem: 'Commercial bank required a compliant mobile micro-lending feature with strict KYC validation and credit bureau integrations.',
+    solution: 'Gathered requirements across legal, engineering, and compliance units; delivered a 35-page BRD with detailed user stories, wireframes, and acceptance criteria.',
+    impact: 'Achieved 100% stakeholder sign-off on first review cycle; zero scope creep during 4-month MVP development sprint.',
     image: '/assets/projects/pnc.jpg',
-    link: '#',
   },
   {
-    id: 'trm',
-    number: '06',
-    title: 'TRM Bullion Mobile App',
-    category: 'TRADING & ASSET MANAGEMENT',
-    tags: ['MOBILE APP', 'FINTECH', 'PROTOTYPING'],
-    year: '2021',
-    description: 'Real-time precious metal spot trading mobile application with instant order routing, biometric security, and live charting.',
+    number: '05',
+    title: 'Supply Chain Inventory & Safety Stock Analysis',
+    domain: 'MANUFACTURING',
+    tools: ['SQL', 'ADVANCED EXCEL', 'POWER BI', 'FORECASTING'],
+    year: '2023',
+    problem: 'Excess component inventory was tying up $650K in working capital while critical parts frequently encountered stockouts.',
+    solution: 'Executed SQL queries against ERP inventory history, calculated reorder points and safety stock levels based on supplier lead-time variance.',
+    impact: 'Reduced surplus warehouse stock holding by 21% while raising on-time order fulfillment to 99.4%.',
     image: '/assets/projects/trm.jpg',
-    link: '#',
+  },
+  {
+    number: '06',
+    title: 'Enterprise Data Analytics Platform Usability Audit',
+    domain: 'B2B ENTERPRISE',
+    tools: ['USER INTERVIEWS', 'MOKKUP.AI', 'KPI MAPPING', 'AGILE'],
+    year: '2023',
+    problem: 'Corporate reporting team was overwhelmed by ad-hoc data requests due to clunky, unintuitive legacy analytics portals.',
+    solution: 'Interviewed 18 department heads, synthesized recurring data queries, and created low-fidelity dashboard wireframes prioritizing self-service analytics.',
+    impact: 'Decreased routine ticket volume for BI analysts by 45% through standardized executive report views.',
+    image: '/assets/projects/nielsen.jpg',
   },
 ];
 ---
 
-<section id="work" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+<section id="projects" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
   <!-- Section Title Header -->
   <div class="project-header border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div class="space-y-3">
       <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
-        <span>&#123; 01 / FEATURED WORK &#125;</span>
+        <span>&#123; 01 / CASE STUDIES &amp; PROJECTS &#125;</span>
       </div>
       <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
-        SELECTED PROJECTS
+        FEATURED BA WORK
       </h2>
     </div>
     <div class="text-xs font-mono text-zinc-400">
-      <span class="text-zinc-600">// CASE ARCHIVE</span> (2021 — 2026)
+      <span class="text-zinc-600">// METHODOLOGY</span> PROBLEM → ANALYSIS → OUTCOME
     </div>
   </div>
 
@@ -102,18 +102,18 @@ const projects: Project[] = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
     {projects.map((project) => (
       <article 
-        class="project-card group flex flex-col space-y-5 bg-dark-900 border border-white/5 hover:border-brand-500/40 rounded-2xl p-4 sm:p-6 transition-all duration-500 hover:shadow-[0_0_35px_rgba(0,255,135,0.08)] cursor-pointer"
+        class="project-card group flex flex-col space-y-5 bg-dark-900 border border-white/5 hover:border-brand-500/40 rounded-2xl p-5 sm:p-7 transition-all duration-500 hover:shadow-[0_0_35px_rgba(0,255,135,0.08)] cursor-pointer"
         data-cursor="project"
       >
-        <!-- Project Preview Image Container with Parallax Zoom -->
+        <!-- Preview Container with Parallax Zoom -->
         <div class="relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-xl overflow-hidden bg-dark-950">
           <img 
             src={project.image} 
             alt={project.title} 
-            class="project-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-95 group-hover:brightness-105"
+            class="project-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-90 group-hover:brightness-105"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/20 to-transparent"></div>
           
           <!-- Top floating card meta -->
           <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-xs font-mono pointer-events-none">
@@ -121,28 +121,28 @@ const projects: Project[] = [
               {project.number}
             </span>
             <span class="px-2.5 py-1 rounded-md bg-dark-950/80 backdrop-blur-md border border-white/10 text-zinc-300">
-              {project.year}
+              {project.domain}
             </span>
           </div>
 
-          <!-- Bottom floating hover tag -->
-          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="px-3 py-1 rounded-full bg-brand-neon text-dark-950 font-mono text-[11px] font-bold tracking-wider flex items-center gap-1.5 shadow-lg">
-              <span>EXPLORE CASE</span>
-              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </span>
+          <!-- Bottom floating impact metric badge -->
+          <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-dark-950/85 backdrop-blur-md border border-brand-neon/30">
+            <div class="text-[10px] font-mono text-brand-neon font-bold uppercase tracking-wider">
+              KEY BUSINESS IMPACT
+            </div>
+            <div class="text-xs text-zinc-200 font-medium line-clamp-1 mt-0.5">
+              {project.impact}
+            </div>
           </div>
         </div>
 
-        <!-- Project Info -->
+        <!-- Project Details -->
         <div class="flex flex-col space-y-3 pt-2">
-          <!-- Tags -->
-          <div class="flex items-center gap-2 flex-wrap text-[10px] font-mono tracking-wider">
-            {project.tags.map((tag) => (
+          <!-- Tools used pills -->
+          <div class="flex items-center gap-1.5 flex-wrap text-[10px] font-mono tracking-wider">
+            {project.tools.map((tool) => (
               <span class="px-2 py-0.5 rounded bg-brand-500/10 border border-brand-500/20 text-brand-neon">
-                {tag}
+                {tool}
               </span>
             ))}
           </div>
@@ -159,10 +159,11 @@ const projects: Project[] = [
             </div>
           </div>
 
-          <!-- Description -->
-          <p class="text-sm text-zinc-400 line-clamp-2 leading-relaxed">
-            {project.description}
-          </p>
+          <!-- Problem & Solution breakdown -->
+          <div class="text-xs space-y-1.5 pt-1 text-zinc-400 leading-relaxed">
+            <p><strong class="text-zinc-300 font-mono text-[11px]">PROBLEM:</strong> {project.problem}</p>
+            <p><strong class="text-brand-neon font-mono text-[11px]">APPROACH:</strong> {project.solution}</p>
+          </div>
         </div>
       </article>
     ))}
@@ -176,7 +177,6 @@ const projects: Project[] = [
   gsap.registerPlugin(ScrollTrigger);
 
   window.addEventListener('DOMContentLoaded', () => {
-    // Animate section header
     gsap.from('.project-header', {
       scrollTrigger: {
         trigger: '.project-header',
@@ -189,7 +189,6 @@ const projects: Project[] = [
       ease: 'power3.out',
     });
 
-    // Animate project cards batch
     ScrollTrigger.batch('.project-card', {
       start: 'top 85%',
       onEnter: (batch) => {

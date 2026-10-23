@@ -1,8 +1,8 @@
 export const AppConfig = {
-  site_name: 'Serah Design',
-  title: 'Serah — Creative Developer & Product Designer',
+  site_name: 'Serah — Business Analyst Portfolio',
+  title: 'Serah — Business Analyst Intern | Data & Strategy',
   description:
-    'Portfolio of Serah — Specializing in experience design, creative engineering, and high-performance digital products.',
+    'Portfolio of Serah, an aspiring Business Analyst specializing in requirements engineering, dashboard wireframing, SQL data analysis, and process optimization.',
   author: 'Serah',
   locale_region: 'en-us',
   locale: 'en',

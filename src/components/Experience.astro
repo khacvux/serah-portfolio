@@ -1,49 +1,49 @@
 ---
 interface ExperienceItem {
   role: string;
-  company: string;
+  organization: string;
   year: string;
-  location: string;
+  type: string;
   description: string;
   highlight?: boolean;
 }
 
-const experiences: ExperienceItem[] = [
+const timeline: ExperienceItem[] = [
   {
-    role: 'Lead Designer & Creative Technologist',
-    company: 'Born Group',
-    year: '2021 → PRESENT',
-    location: 'London, UK / Remote',
-    description: 'Leading design systems and interactive web architecture for premier enterprise accounts, managing cross-functional squads of engineers and designers.',
+    role: 'Business Analysis & Analytics Intern',
+    organization: 'FinTech Growth Lab',
+    year: '2025 → PRESENT',
+    type: 'INTERNSHIP',
+    description: 'Collaborating directly with product managers and engineers to elicit requirements for user onboarding; designed low-fi dashboard wireframes in Mokkup.ai and authored 25+ Jira user stories with acceptance criteria.',
     highlight: true,
   },
   {
-    role: 'Senior Product Designer',
-    company: 'W12 Studios',
-    year: '2019 — 2021',
-    location: 'London, UK',
-    description: 'Spearheaded connected television OS interfaces and next-generation media playback experiences for top-tier global telecom brands.',
+    role: 'Student Business Analyst (Capstone Project)',
+    organization: 'Enterprise Analytics Clinic',
+    year: '2024 — 2025',
+    type: 'CONSULTING CLIENT',
+    description: 'Advised an omnichannel retailer on inventory turnover bottlenecks; queried 150K+ transactional records via PostgreSQL and built interactive Power BI dashboards that identified $180K in slow-moving stock.',
   },
   {
-    role: 'Interactive Designer & Prototyper',
-    company: 'Nimbletank',
-    year: '2018 — 2019',
-    location: 'London, UK',
-    description: 'Crafted award-winning mobile applications and interactive digital products with rapid GSAP prototyping and user validation.',
+    role: 'Data Analysis & Research Assistant',
+    organization: 'Department of Information Systems',
+    year: '2023 — 2024',
+    type: 'ACADEMIC RESEARCH',
+    description: 'Conducted exploratory data analysis (EDA) using Python (Pandas) and Excel; cleaned and validated multi-year survey datasets, producing statistical distribution charts for faculty publications.',
   },
   {
-    role: 'Digital Designer',
-    company: "Code D'azur",
-    year: '2015 — 2018',
-    location: 'Amsterdam / London',
-    description: 'Designed experiential brand campaigns, e-commerce storefronts, and digital identity platforms.',
+    role: 'VP of Operations & Project Management',
+    organization: 'University Business & Analytics Club',
+    year: '2022 — 2023',
+    type: 'LEADERSHIP',
+    description: 'Mapped end-to-end event planning workflows using BPMN diagrams; introduced Jira for committee task management, cutting event coordination cycle time by 35%.',
   },
   {
-    role: 'Junior Designer',
-    company: 'Mullen Lowe Profero',
-    year: '2013 — 2015',
-    location: 'London, UK',
-    description: 'Collaborated on responsive web experiences, iconography sets, and digital brand collateral.',
+    role: 'B.S. in Information Systems & Business Analytics',
+    organization: 'School of Computing & Business',
+    year: '2022 — 2026 (EXPECTED)',
+    type: 'EDUCATION (3.85 GPA)',
+    description: 'Key Coursework: Relational Database Systems (SQL), Business Process Engineering (BPMN), Agile Software Delivery, Enterprise Systems (ERP), Business Statistics.',
   },
 ];
 ---
@@ -54,25 +54,25 @@ const experiences: ExperienceItem[] = [
     <div class="space-y-3">
       <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
-        <span>&#123; 03 / CAREER JOURNEY &#125;</span>
+        <span>&#123; 04 / EXPERIENCE &amp; EDUCATION &#125;</span>
       </div>
       <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
-        MY EXPERIENCE
+        BACKGROUND &amp; TIMELINE
       </h2>
     </div>
     <div class="text-xs font-mono text-zinc-400">
-      <span class="text-zinc-600">// ROLES &amp; RESIDENCIES</span> (2013 — PRESENT)
+      <span class="text-zinc-600">// TRACK RECORD</span> ACADEMIC EXCELLENCE &amp; PRACTICAL APPLICATION
     </div>
   </div>
 
   <!-- Interactive Timeline Table -->
   <div class="space-y-4">
-    {experiences.map((item, index) => (
+    {timeline.map((item, index) => (
       <div 
         class="exp-row group p-6 sm:p-8 rounded-2xl bg-dark-900 border border-white/5 hover:border-brand-500/40 transition-all duration-400 hover:bg-dark-850 hover:shadow-[0_0_30px_rgba(0,255,135,0.06)]"
       >
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <!-- Left: Index + Role & Company -->
+          <!-- Left: Index + Role & Organization -->
           <div class="flex items-start sm:items-center gap-4 sm:gap-6">
             <span class="font-mono text-xs text-brand-neon/60 group-hover:text-brand-neon font-bold tracking-widest pt-1 sm:pt-0">
               0{index + 1}
@@ -89,7 +89,7 @@ const experiences: ExperienceItem[] = [
                 )}
               </div>
               <p class="text-sm font-mono text-zinc-400 mt-1">
-                {item.company} <span class="text-zinc-600">•</span> <span class="text-zinc-500 text-xs">{item.location}</span>
+                {item.organization} <span class="text-zinc-600">•</span> <span class="text-zinc-500 text-xs">{item.type}</span>
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ const experiences: ExperienceItem[] = [
           </div>
         </div>
 
-        <!-- Description revealed on detail -->
+        <!-- Description -->
         <p class="text-sm text-zinc-400 mt-4 pt-4 border-t border-white/5 leading-relaxed max-w-3xl">
           {item.description}
         </p>

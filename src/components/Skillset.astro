@@ -2,35 +2,48 @@
 interface SkillCategory {
   number: string;
   title: string;
-  description: string;
+  tagline: string;
+  tools: string[];
   skills: string[];
 }
 
 const skillCategories: SkillCategory[] = [
   {
     number: '01',
-    title: 'UI DESIGN',
-    description: 'Crafting clean, accessible, and responsive user interfaces that delight users and scale effortlessly.',
-    skills: ['Design Systems', 'Micro-Interactions', 'Responsive Layouts', 'High-Fidelity Prototyping', 'Component Architecture'],
+    title: 'DASHBOARD WIREFRAMING & BI',
+    tagline: 'Planning KPIs & reporting logic before BI engineering to eliminate costly rework.',
+    tools: ['Mokkup.ai', 'Power BI (DAX)', 'Tableau', 'Figma'],
+    skills: ['Dashboard Wireframing', 'KPI Hierarchy Design', 'Interactive Visualizations', 'BI Export to Power BI/Tableau', 'Self-Service Analytics'],
   },
   {
     number: '02',
-    title: 'BRAND IDENTITY',
-    description: 'Forging memorable visual languages that express brand heart and soul across every digital touchpoint.',
-    skills: ['Art Direction', 'Editorial Typography', 'Visual Systems', 'Guidelines & Assets', 'Motion Branding'],
+    title: 'DATA QUERYING & MANAGEMENT',
+    tagline: 'Extracting, transforming, and validating large datasets directly from production stores.',
+    tools: ['SQL (Postgres, MySQL)', 'Advanced Excel', 'Python (Pandas)'],
+    skills: ['Complex SQL Joins & Subqueries', 'Data Cleaning & Transformation', 'Pivot Tables & Power Query', 'Trend & Cohort Analysis', 'Variance & Anomaly Detection'],
   },
   {
     number: '03',
-    title: 'UX STRATEGY',
-    description: 'Transforming complex product requirements into intuitive user journeys through targeted research and data.',
-    skills: ['User Research', 'Wireframing', 'Journey Mapping', 'Usability Audits', 'Conversion Optimization'],
+    title: 'REQUIREMENTS & AGILE DELIVERY',
+    tagline: 'Bridging non-technical business stakeholders and engineering teams in Scrum sprints.',
+    tools: ['Jira', 'Confluence', 'Miro', 'Notion'],
+    skills: ['BRD & FRD Authoring', 'User Stories & Acceptance Criteria', 'MoSCoW Prioritization', 'Backlog Grooming & Sprints', 'Stakeholder Alignment'],
   },
   {
     number: '04',
-    title: 'CREATIVE DEV',
-    description: 'Bridging the gap between design and production with fluid animations, solid engineering, and 60fps performance.',
-    skills: ['GSAP & ScrollTrigger', 'Astro & React', 'Tailwind CSS', 'TypeScript', 'Web Performance'],
+    title: 'PROCESS MODELING & STRATEGY',
+    tagline: 'Deconstructing business workflows to identify bottlenecks and automate handover delays.',
+    tools: ['BPMN 2.0', 'Lucidchart', 'Visio', 'Draw.io'],
+    skills: ['AS-IS vs. TO-BE Process Mapping', 'Root-Cause & Fishbone Analysis', 'Value Stream Mapping', 'Gap Analysis', 'Feasibility & ROI Studies'],
   },
+];
+
+const chartVisualizations = [
+  { type: 'Bar Charts', desc: 'Categorical comparisons (Territory sales, product revenue)' },
+  { type: 'Line Charts', desc: 'Time-series trend analysis (Monthly ARR, churn velocity)' },
+  { type: 'Pie / Donut', desc: 'Composition & proportion of market share' },
+  { type: 'Scatter Plots', desc: 'Correlation analysis (Ad spend vs. revenue conversion)' },
+  { type: 'Histograms', desc: 'Distribution analytics (Customer age cohorts, ticket times)' },
 ];
 ---
 
@@ -40,14 +53,14 @@ const skillCategories: SkillCategory[] = [
     <div class="space-y-3">
       <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
-        <span>&#123; 04 / CAPABILITIES &#125;</span>
+        <span>&#123; 03 / BA TOOLKIT &amp; CAPABILITIES &#125;</span>
       </div>
       <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
-        MY SKILLSET
+        TECHNICAL &amp; BUSINESS ARSENAL
       </h2>
     </div>
-    <div class="text-xs font-mono text-zinc-400 max-w-md text-right">
-      Over the course of my career, I’ve strived to develop a diverse set of core capabilities.
+    <div class="text-xs font-mono text-zinc-400 max-w-md md:text-right">
+      <span class="text-zinc-600">// STANDARDS</span> IIBA BABOK® ALIGNED · MODERN 2026 TOOLKIT
     </div>
   </div>
 
@@ -63,13 +76,22 @@ const skillCategories: SkillCategory[] = [
             <span class="w-2 h-2 rounded-full bg-zinc-700 group-hover:bg-brand-neon transition-colors"></span>
           </div>
 
-          <h3 class="text-2xl font-bold text-white group-hover:text-brand-neon transition-colors">
+          <h3 class="text-xl font-bold text-white group-hover:text-brand-neon transition-colors">
             {cat.title}
           </h3>
 
-          <p class="text-sm text-zinc-400 leading-relaxed font-light">
-            {cat.description}
+          <p class="text-xs text-zinc-400 leading-relaxed font-light">
+            {cat.tagline}
           </p>
+
+          <!-- Primary Tools -->
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            {cat.tools.map((t) => (
+              <span class="px-2 py-0.5 rounded bg-dark-950 border border-white/10 text-zinc-300 font-mono text-[10px]">
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div class="border-t border-white/5 pt-4 space-y-2">
@@ -82,6 +104,27 @@ const skillCategories: SkillCategory[] = [
         </div>
       </div>
     ))}
+  </div>
+
+  <!-- Data Visualization Mastery Banner (Referencing Mokkup.ai Chart Guide) -->
+  <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-dark-900 border border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+    <div class="space-y-1 max-w-md">
+      <div class="text-xs font-mono text-brand-neon tracking-widest uppercase">
+        DATA STORYTELLING // ESSENTIAL CHART MASTERY
+      </div>
+      <div class="text-sm text-zinc-300 font-medium">
+        Selecting the right visual for the right business decision.
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full lg:w-auto font-mono text-xs">
+      {chartVisualizations.map((chart) => (
+        <div class="p-3 rounded-xl bg-dark-950 border border-white/5 flex flex-col justify-between">
+          <span class="text-brand-neon font-bold">{chart.type}</span>
+          <span class="text-[10px] text-zinc-500 mt-1 line-clamp-2">{chart.desc}</span>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
