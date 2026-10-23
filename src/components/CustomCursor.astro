@@ -20,27 +20,27 @@
     // Center both cursor elements using GSAP transforms to avoid CSS conflicts
     gsap.set([dot, follower], { xPercent: -50, yPercent: -50 });
 
-    // Use gsap.quickTo for high-performance 60fps movement
-    const xDot = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3' });
-    const yDot = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3' });
-    const xFollower = gsap.quickTo(follower, 'x', { duration: 0.32, ease: 'power2.out' });
-    const yFollower = gsap.quickTo(follower, 'y', { duration: 0.32, ease: 'power2.out' });
+    // Ultra-snappy, low-latency 60/120fps movement
+    const xDot = gsap.quickTo(dot, 'x', { duration: 0.03, ease: 'none' });
+    const yDot = gsap.quickTo(dot, 'y', { duration: 0.03, ease: 'none' });
+    const xFollower = gsap.quickTo(follower, 'x', { duration: 0.12, ease: 'power2.out' });
+    const yFollower = gsap.quickTo(follower, 'y', { duration: 0.12, ease: 'power2.out' });
 
     let isVisible = false;
 
     window.addEventListener('mousemove', (e) => {
       if (!isVisible) {
-        gsap.to([dot, follower], { autoAlpha: 1, duration: 0.2, overwrite: 'auto' });
+        gsap.to([dot, follower], { autoAlpha: 1, duration: 0.15, overwrite: 'auto' });
         isVisible = true;
       }
       xDot(e.clientX);
       yDot(e.clientY);
       xFollower(e.clientX);
       yFollower(e.clientY);
-    });
+    }, { passive: true });
 
     document.addEventListener('mouseleave', () => {
-      gsap.to([dot, follower], { autoAlpha: 0, duration: 0.2, overwrite: 'auto' });
+      gsap.to([dot, follower], { autoAlpha: 0, duration: 0.15, overwrite: 'auto' });
       isVisible = false;
     });
 

@@ -2,7 +2,7 @@
 ---
 <section id="contact" class="py-24 sm:py-36 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
   <!-- Sky ambient glow behind contact -->
-  <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full pointer-events-none -z-10" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);"></div>
 
   <!-- Header -->
   <div class="contact-header border-b border-slate-200 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -172,21 +172,21 @@
       autoAlpha: 0,
       duration: 0.8,
       ease: 'power3.out',
-      clearProps: 'transform,opacity,visibility',
+      clearProps: 'all',
     })
     .from('.contact-left', {
       y: 35,
       autoAlpha: 0,
       duration: 0.85,
       ease: 'power3.out',
-      clearProps: 'transform,opacity,visibility',
+      clearProps: 'all',
     }, '-=0.5')
     .from('.contact-right', {
       y: 35,
       autoAlpha: 0,
       duration: 0.85,
       ease: 'power3.out',
-      clearProps: 'transform,opacity,visibility',
+      clearProps: 'all',
     }, '-=0.65');
   });
 </script>

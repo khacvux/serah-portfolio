@@ -5,7 +5,6 @@ import CustomCursor from '@/components/CustomCursor.astro';
 import Footer from '@/components/Footer.astro';
 import Navbar from '@/components/Navbar.astro';
 import Preloader from '@/components/Preloader.astro';
-import SmoothScroll from '@/components/SmoothScroll.astro';
 import { AppConfig } from '@/utils/AppConfig';
 
 export interface Props {
@@ -48,9 +47,6 @@ const description = head?.description ?? AppConfig.description;
     <!-- GSAP Preloader Curtain -->
     <Preloader />
 
-    <!-- Smooth momentum scrolling (Lenis + GSAP RAF) -->
-    <SmoothScroll />
-
     <!-- Interactive Custom Cursor follower -->
     <CustomCursor />
 
@@ -64,5 +60,23 @@ const description = head?.description ?? AppConfig.description;
 
     <!-- Footer -->
     <Footer />
+
+    <!-- Fast, Native Smooth Scrolling for In-Page Anchors -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (href && href.length > 1) {
+              const target = document.querySelector(href);
+              if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

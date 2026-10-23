@@ -136,7 +136,7 @@
         autoAlpha: 0,
         duration: 0.8,
         ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility',
+        clearProps: 'all',
       })
       .from('.about-photo-col', {
         x: isDesktop ? -30 : 0,
@@ -144,7 +144,7 @@
         autoAlpha: 0,
         duration: 0.85,
         ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility',
+        clearProps: 'all',
       }, '-=0.5')
       .from('.about-text-col', {
         x: isDesktop ? 30 : 0,
@@ -152,7 +152,7 @@
         autoAlpha: 0,
         duration: 0.85,
         ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility',
+        clearProps: 'all',
       }, '-=0.65');
     });
   });

@@ -25,23 +25,6 @@
   }
 }
 
-/* Lenis Smooth Scrolling Standard Styles */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -57,7 +40,7 @@ html.lenis, html.lenis body {
   background: #0284c7;
 }
 
-/* Custom Cursor with GPU Layer Promotion */
+/* Custom Cursor with GPU Layer Promotion and No Backdrop-Filter */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -68,7 +51,7 @@ html.lenis, html.lenis body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
-  box-shadow: 0 0 10px rgba(2, 132, 199, 0.6);
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.5);
   opacity: 0;
   visibility: hidden;
   will-change: transform;
@@ -93,33 +76,31 @@ html.lenis, html.lenis body {
   font-weight: 700;
   letter-spacing: 0.05em;
   color: transparent;
-  backdrop-filter: blur(2px);
   opacity: 0;
   visibility: hidden;
-  will-change: transform, width, height;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
-              border-color 0.25s ease,
-              color 0.25s ease,
-              box-shadow 0.25s ease,
-              border-radius 0.25s ease;
+  will-change: transform;
+  transition: width 0.25s ease,
+              height 0.25s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .cursor-follower.is-hovering {
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   background: rgba(2, 132, 199, 0.12);
   border-color: #0284c7;
 }
 
 .cursor-follower.is-project {
-  width: 86px;
-  height: 86px;
+  width: 80px;
+  height: 80px;
   background-color: #0284c7;
   border-color: #0284c7;
   color: #ffffff;
-  box-shadow: 0 10px 35px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
 }
 
 @media (max-width: 1024px) {
