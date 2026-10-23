@@ -79,24 +79,24 @@
 
     tl.from('.hero-title-1', {
       yPercent: 120,
-      duration: 1.0,
-      ease: 'power4.out',
+      duration: 1.15,
+      ease: 'expo.out',
       clearProps: 'transform',
     })
     .from('.hero-title-2', {
       yPercent: 120,
-      duration: 1.0,
-      ease: 'power4.out',
+      duration: 1.15,
+      ease: 'expo.out',
       clearProps: 'transform',
-    }, '-=0.85')
+    }, '-=0.95')
     .from('.hero-anim-item', {
-      y: 30,
+      y: 25,
       autoAlpha: 0,
-      stagger: 0.12,
-      duration: 0.8,
+      stagger: 0.1,
+      duration: 0.85,
       ease: 'power3.out',
       clearProps: 'transform,opacity,visibility',
-    }, '-=0.7');
+    }, '-=0.75');
   }
 
   window.addEventListener('DOMContentLoaded', () => {

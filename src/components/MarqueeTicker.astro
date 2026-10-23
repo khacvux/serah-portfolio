@@ -82,7 +82,11 @@
       repeat: -1,
     });
 
-    track.addEventListener('mouseenter', () => tween.pause());
-    track.addEventListener('mouseleave', () => tween.play());
+    track.addEventListener('mouseenter', () => {
+      gsap.to(tween, { timeScale: 0.25, duration: 0.6, ease: 'power2.out' });
+    });
+    track.addEventListener('mouseleave', () => {
+      gsap.to(tween, { timeScale: 1, duration: 0.6, ease: 'power2.out' });
+    });
   });
 </script>

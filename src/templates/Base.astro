@@ -5,6 +5,7 @@ import CustomCursor from '@/components/CustomCursor.astro';
 import Footer from '@/components/Footer.astro';
 import Navbar from '@/components/Navbar.astro';
 import Preloader from '@/components/Preloader.astro';
+import SmoothScroll from '@/components/SmoothScroll.astro';
 import { AppConfig } from '@/utils/AppConfig';
 
 export interface Props {
@@ -20,7 +21,7 @@ const description = head?.description ?? AppConfig.description;
 ---
 
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +47,9 @@ const description = head?.description ?? AppConfig.description;
   <body class="relative min-h-screen bg-[#f8fafc] text-ink-900 antialiased selection:bg-brand-200 selection:text-brand-800">
     <!-- GSAP Preloader Curtain -->
     <Preloader />
+
+    <!-- Smooth momentum scrolling (Lenis + GSAP RAF) -->
+    <SmoothScroll />
 
     <!-- Interactive Custom Cursor follower -->
     <CustomCursor />

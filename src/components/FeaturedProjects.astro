@@ -189,20 +189,39 @@ const projects: BAProject[] = [
       ease: 'power3.out',
     });
 
-    ScrollTrigger.batch('.project-card', {
-      start: 'top 85%',
-      onEnter: (batch) => {
-        gsap.from(batch, {
-          y: 50,
-          autoAlpha: 0,
-          stagger: 0.15,
-          duration: 0.85,
-          ease: 'power3.out',
-          clearProps: 'transform,opacity,visibility',
-          overwrite: 'auto',
-        });
-      },
-      once: true,
+    const projectCards = gsap.utils.toArray('.project-card') as HTMLElement[];
+    projectCards.forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+        y: 40,
+        autoAlpha: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        clearProps: 'transform,opacity,visibility',
+      });
+
+      const img = card.querySelector('.project-img');
+      if (img) {
+        gsap.fromTo(img, 
+          { yPercent: -6, scale: 1.06 },
+          {
+            yPercent: 6,
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.2,
+            },
+          }
+        );
+      }
     });
   });
 </script>
