@@ -5,45 +5,50 @@ interface ExperienceItem {
   year: string;
   type: string;
   description: string;
+  badge?: string;
   highlight?: boolean;
 }
 
 const timeline: ExperienceItem[] = [
   {
-    role: 'Business Analysis & Analytics Intern',
-    organization: 'FinTech Growth Lab',
-    year: '2025 → PRESENT',
-    type: 'INTERNSHIP',
-    description: 'Collaborating directly with product managers and engineers to elicit requirements for user onboarding; designed low-fi dashboard wireframes in Mokkup.ai and authored 25+ Jira user stories with acceptance criteria.',
+    role: 'Business Analysis (ITBA) Thực Chiến: Cơ bản + Kỹ năng ITBA',
+    organization: 'UDECAREER',
+    year: '2026',
+    type: 'PROFESSIONAL CERTIFICATION',
+    badge: 'ITBA CERTIFIED',
+    description: 'Comprehensive practical training in IT Business Analysis: requirement elicitation, writing User Stories with Acceptance Criteria, drafting BRD & FRD specifications, process mapping (BPMN), backlog grooming, and Agile/Scrum ceremonies.',
     highlight: true,
   },
   {
-    role: 'Student Business Analyst (Capstone Project)',
-    organization: 'Enterprise Analytics Clinic',
+    role: 'English Proficiency: IELTS 7.5',
+    organization: 'International English Language Testing System',
+    year: 'July 2026',
+    type: 'LANGUAGE CERTIFICATION',
+    badge: 'C1 ADVANCED',
+    description: 'Fluent professional English proficiency for cross-border collaboration, client requirement discovery calls, executive presentations, and technical documentation.',
+    highlight: true,
+  },
+  {
+    role: 'Bachelor of Arts (BA) — Oriental Studies',
+    organization: 'The University of Danang - University of Foreign Language Studies',
+    year: 'Aug 2019 — Aug 2023',
+    type: 'DEGREE (FINAL GPA: 3.7 / 4.0)',
+    badge: 'GPA 3.7 / 4.0',
+    description: 'Major in Oriental Studies. Developed advanced research methodologies, structured analytical thinking, cross-cultural communication, and qualitative data synthesis. Graduated with high academic distinction.',
+  },
+  {
+    role: 'Business Analysis Case Study Capstone',
+    organization: 'Enterprise E-Commerce Simulation',
     year: '2024 — 2025',
-    type: 'CONSULTING CLIENT',
-    description: 'Advised an omnichannel retailer on inventory turnover bottlenecks; queried 150K+ transactional records via PostgreSQL and built interactive Power BI dashboards that identified $180K in slow-moving stock.',
+    type: 'PRACTICAL PROJECT',
+    description: 'Conducted end-to-end business analysis for a retail platform; wireframed dashboard prototypes in Mokkup.ai, structured SQL aggregations, and authored comprehensive requirements documentation (BRD).',
   },
   {
-    role: 'Data Analysis & Research Assistant',
-    organization: 'Department of Information Systems',
-    year: '2023 — 2024',
-    type: 'ACADEMIC RESEARCH',
-    description: 'Conducted exploratory data analysis (EDA) using Python (Pandas) and Excel; cleaned and validated multi-year survey datasets, producing statistical distribution charts for faculty publications.',
-  },
-  {
-    role: 'VP of Operations & Project Management',
-    organization: 'University Business & Analytics Club',
-    year: '2022 — 2023',
-    type: 'LEADERSHIP',
-    description: 'Mapped end-to-end event planning workflows using BPMN diagrams; introduced Jira for committee task management, cutting event coordination cycle time by 35%.',
-  },
-  {
-    role: 'B.S. in Information Systems & Business Analytics',
-    organization: 'School of Computing & Business',
-    year: '2022 — 2026 (EXPECTED)',
-    type: 'EDUCATION (3.85 GPA)',
-    description: 'Key Coursework: Relational Database Systems (SQL), Business Process Engineering (BPMN), Agile Software Delivery, Enterprise Systems (ERP), Business Statistics.',
+    role: 'Project Coordination & Research Assistant',
+    organization: 'University Academic Initiatives',
+    year: '2021 — 2023',
+    type: 'LEADERSHIP & ACADEMIC',
+    description: 'Managed schedules, stakeholder correspondence, and research documentation for academic symposiums; synthesized multi-source data into executive presentation summaries.',
   },
 ];
 ---
@@ -54,14 +59,14 @@ const timeline: ExperienceItem[] = [
     <div class="space-y-3">
       <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
-        <span>&#123; 04 / EXPERIENCE &amp; EDUCATION &#125;</span>
+        <span>&#123; 04 / EDUCATION &amp; CERTIFICATIONS &#125;</span>
       </div>
       <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
-        BACKGROUND &amp; TIMELINE
+        EDUCATION &amp; CREDENTIALS
       </h2>
     </div>
     <div class="text-xs font-mono text-zinc-400">
-      <span class="text-zinc-600">// TRACK RECORD</span> ACADEMIC EXCELLENCE &amp; PRACTICAL APPLICATION
+      <span class="text-zinc-600">// VERIFIED TRACK RECORD</span> UFLS DANANG · UDECAREER · IELTS 7.5
     </div>
   </div>
 
@@ -82,9 +87,9 @@ const timeline: ExperienceItem[] = [
                 <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-neon transition-colors">
                   {item.role}
                 </h3>
-                {item.highlight && (
-                  <span class="px-2 py-0.5 rounded-full bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-[10px] font-mono font-semibold">
-                    CURRENT
+                {item.badge && (
+                  <span class="px-2.5 py-0.5 rounded-full bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-[10px] font-mono font-semibold">
+                    {item.badge}
                   </span>
                 )}
               </div>

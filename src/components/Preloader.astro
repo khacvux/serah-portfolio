@@ -5,7 +5,7 @@
   <div class="flex items-center justify-between text-xs tracking-widest font-mono text-zinc-400">
     <div class="flex items-center gap-2">
       <span class="inline-block w-2 h-2 rounded-full bg-brand-neon animate-ping"></span>
-      <span class="text-zinc-200">SERAH DESIGN</span>
+      <span class="text-zinc-200">DIEU THAO // BUSINESS ANALYST</span>
     </div>
     <div class="hidden sm:block text-brand-neon">
       &#123; SYSTEM INITIALIZING &#125;
@@ -18,7 +18,7 @@
   <!-- Center animated status -->
   <div class="my-auto text-center flex flex-col items-center justify-center space-y-4">
     <div class="text-xs font-mono tracking-widest text-brand-neon uppercase">
-      &#123; LOADING EXPERIENCES &#125;
+      &#123; LOADING BA CASE STUDIES &#125;
     </div>
     <div class="text-7xl sm:text-9xl md:text-[11rem] font-mono font-bold tracking-tighter text-white tabular-nums flex items-baseline justify-center">
       <span id="loader-number">00</span>
@@ -31,8 +31,8 @@
 
   <!-- Bottom bar -->
   <div class="flex items-center justify-between text-xs font-mono text-zinc-500 border-t border-zinc-900 pt-4">
-    <span>CRAFTING EXPERIENCES</span>
-    <span>FUNCTIONALITY &amp; AESTHETICS</span>
+    <span>REQUIREMENTS &amp; DATA</span>
+    <span>BUSINESS LOGIC &amp; STRATEGY</span>
     <span>[ 60 FPS MOTION ]</span>
   </div>
 </div>
@@ -47,14 +47,10 @@
     
     if (!preloader || !loaderNum || !loaderBar) return;
 
-    // Check if user has already visited in this session
-    const hasLoaded = sessionStorage.getItem('serah_loaded');
-    
     const countObj = { val: 0 };
     const tl = gsap.timeline({
       onComplete: () => {
-        sessionStorage.setItem('serah_loaded', 'true');
-        // Trigger hero reveal
+        sessionStorage.setItem('dieuthao_loaded', 'true');
         window.dispatchEvent(new CustomEvent('preloaderDone'));
       }
     });
