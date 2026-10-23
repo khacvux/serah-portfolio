@@ -53,67 +53,77 @@ const timeline: ExperienceItem[] = [
 ];
 ---
 
-<section id="experience" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
-  <!-- Section Title Header -->
-  <div class="experience-header border-b border-slate-200 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<section id="experience" class="py-24 sm:py-32 px-6 lg:px-12 max-w-[1440px] mx-auto">
+  <!-- Section Title Header in Sky Blue tone -->
+  <div class="experience-header border-b border-[#d5e7f5] pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div class="space-y-3">
-      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-sky-600 font-bold uppercase">
-        <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-        <span>&#123; 04 / EDUCATION &amp; CERTIFICATIONS &#125;</span>
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-[#5a7894] font-bold uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#0ea5e9]"></span>
+        <span>&#123; 03 &#125; EXPERIENCE &amp; CREDENTIALS</span>
       </div>
-      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-ink-950 uppercase">
-        EDUCATION &amp; CREDENTIALS
+      <h2 class="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-[#091e36] uppercase">
+        TRACK RECORD
       </h2>
     </div>
-    <div class="text-xs font-mono text-ink-500">
-      <span class="text-ink-400">// VERIFIED TRACK RECORD</span> UFLS DANANG · UDECAREER · IELTS 7.5
+    <div class="text-xs font-mono text-[#5a7894]">
+      <span class="text-[#0284c7] font-bold">// VERIFIED:</span> UFLS DANANG · UDECAREER · IELTS 7.5
     </div>
   </div>
 
-  <!-- Interactive Timeline Table -->
-  <div class="space-y-4">
+  <!-- Table Header Bar in Sky Blue tone -->
+  <div class="hidden md:grid grid-cols-12 gap-6 pb-4 border-b border-[#d5e7f5] font-mono text-xs text-[#5a7894] uppercase tracking-wider font-semibold">
+    <div class="col-span-1">#</div>
+    <div class="col-span-5">ROLE / CERTIFICATION</div>
+    <div class="col-span-4">ORGANIZATION / INSTITUTION</div>
+    <div class="col-span-2 text-right">YEAR</div>
+  </div>
+
+  <!-- Interactive Timeline Rows with Hairline Dividers -->
+  <div class="divide-y divide-[#d5e7f5] border-b border-[#d5e7f5]">
     {timeline.map((item, index) => (
       <div 
-        class="exp-row group p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 hover:border-sky-400 transition-colors duration-300 hover:bg-sky-50/20 shadow-sm hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)]"
+        class="exp-row group py-8 transition-colors duration-300 hover:bg-sky-500/[0.04]"
+        data-cursor="interactive"
       >
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <!-- Left: Index + Role & Organization -->
-          <div class="flex items-start sm:items-center gap-4 sm:gap-6">
-            <span class="font-mono text-xs text-sky-600 group-hover:text-sky-700 font-bold tracking-widest pt-1 sm:pt-0">
-              {`0${index + 1}`}
-            </span>
-            <div>
-              <div class="flex items-center gap-3 flex-wrap">
-                <h3 class="text-xl sm:text-2xl font-bold text-ink-950 group-hover:text-sky-600 transition-colors">
-                  {item.role}
-                </h3>
-                {item.badge && (
-                  <span class="px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-[10px] font-mono font-semibold">
-                    {item.badge}
-                  </span>
-                )}
-              </div>
-              <p class="text-sm font-mono text-ink-500 mt-1">
-                {item.organization} <span class="text-slate-300">•</span> <span class="text-ink-400 text-xs">{item.type}</span>
-              </p>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-start md:items-center">
+          <!-- Index -->
+          <div class="col-span-1 font-mono text-xs text-[#5a7894] group-hover:text-[#0284c7] font-bold tracking-widest transition-colors">
+            {`0${index + 1}`}
+          </div>
+
+          <!-- Role -->
+          <div class="col-span-5 space-y-1">
+            <div class="flex items-center gap-3 flex-wrap">
+              <h3 class="text-xl sm:text-2xl font-bold text-[#091e36] group-hover:text-[#0284c7] transition-colors">
+                {item.role}
+              </h3>
+              {item.badge && (
+                <span class="px-2.5 py-0.5 border border-[#d5e7f5] bg-[#eef6fc] text-[#0284c7] text-[10px] font-mono font-semibold">
+                  {item.badge}
+                </span>
+              )}
             </div>
           </div>
 
-          <!-- Right: Year & Arrow -->
-          <div class="flex items-center justify-between sm:justify-end gap-6 pt-2 lg:pt-0 border-t border-slate-100 lg:border-none">
-            <span class="font-mono text-xs sm:text-sm tracking-wider font-semibold text-ink-500 group-hover:text-ink-950 transition-colors">
-              {item.year}
-            </span>
-            <div class="w-8 h-8 rounded-full border border-slate-200 group-hover:border-sky-500 group-hover:bg-sky-500 group-hover:text-white text-ink-400 flex items-center justify-center transition-all duration-300">
-              <svg class="w-4 h-4 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Organization -->
+          <div class="col-span-4 font-mono text-xs sm:text-sm text-[#1e3852]">
+            <span>{item.organization}</span>
+            <span class="text-[#5a7894] block text-[11px] mt-0.5">{item.type}</span>
+          </div>
+
+          <!-- Year & Arrow -->
+          <div class="col-span-2 flex items-center justify-between md:justify-end gap-4 font-mono text-xs sm:text-sm text-[#091e36]">
+            <span class="font-semibold tracking-wider">{item.year}</span>
+            <div class="w-7 h-7 rounded-full border border-[#d5e7f5] group-hover:border-[#0284c7] group-hover:bg-[#0284c7] group-hover:text-white text-[#091e36] flex items-center justify-center transition-all">
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
             </div>
           </div>
         </div>
 
-        <!-- Description -->
-        <p class="text-sm text-ink-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed max-w-3xl">
+        <!-- Description Details -->
+        <p class="text-xs sm:text-sm text-[#2c4c6e] mt-3 md:pl-[8.333%] leading-relaxed max-w-4xl">
           {item.description}
         </p>
       </div>
