@@ -7,22 +7,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #07080c;
-    color: #f3f4f6;
+    background-color: #f8fafc;
+    color: #0f172a;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   body {
-    background-color: #07080c;
-    color: #f3f4f6;
+    background-color: #f8fafc;
+    color: #0f172a;
     overflow-x: hidden;
     position: relative;
     cursor: default;
   }
 
   ::selection {
-    background-color: #3874ff;
-    color: #ffffff;
+    background-color: #bae6fd;
+    color: #0369a1;
   }
 }
 
@@ -31,29 +31,29 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080c;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1d243b;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3874ff;
+  background: #0284c7;
 }
 
-/* Custom Cursor */
+/* Custom Cursor for Light Theme */
 .cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
   width: 6px;
   height: 6px;
-  background-color: #3874ff;
+  background-color: #0284c7;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 12px #3874ff;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.6);
   transition: opacity 0.2s ease;
 }
 
@@ -63,8 +63,8 @@
   left: 0;
   width: 38px;
   height: 38px;
-  border: 1px solid rgba(56, 116, 255, 0.45);
-  background: rgba(56, 116, 255, 0.04);
+  border: 1px solid rgba(2, 132, 199, 0.45);
+  background: rgba(2, 132, 199, 0.04);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -90,17 +90,17 @@
 .cursor-follower.is-hovering {
   width: 58px;
   height: 58px;
-  background: rgba(56, 116, 255, 0.16);
-  border-color: #3874ff;
+  background: rgba(2, 132, 199, 0.12);
+  border-color: #0284c7;
 }
 
 .cursor-follower.is-project {
   width: 86px;
   height: 86px;
-  background-color: #3874ff;
-  border-color: #3874ff;
+  background-color: #0284c7;
+  border-color: #0284c7;
   color: #ffffff;
-  box-shadow: 0 0 35px rgba(56, 116, 255, 0.7);
+  box-shadow: 0 10px 35px rgba(2, 132, 199, 0.4);
 }
 
 @media (max-width: 1024px) {
@@ -109,22 +109,22 @@
   }
 }
 
-/* Subtle Grid Background */
+/* Subtle Grid Background for Light Mode */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
-/* Blue ambient glow */
+/* Light Sky Blue Glow */
 .blue-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(56, 116, 255, 0.16) 0%, rgba(30, 80, 230, 0.04) 45%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, rgba(14, 165, 233, 0.05) 50%, transparent 70%);
 }
 
 .blue-border-glow:hover {
-  border-color: rgba(56, 116, 255, 0.5);
-  box-shadow: 0 0 25px rgba(56, 116, 255, 0.18);
+  border-color: rgba(2, 132, 199, 0.4);
+  box-shadow: 0 8px 30px rgba(2, 132, 199, 0.08);
 }
 
 /* Mono badge utility */

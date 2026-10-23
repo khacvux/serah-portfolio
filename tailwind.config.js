@@ -2,31 +2,36 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}'],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        dark: {
-          950: '#07080c',
-          900: '#0b0e17',
-          850: '#101422',
-          800: '#161c2e',
-          750: '#1d243b',
-          700: '#252f4c',
-          600: '#323e63',
-        },
         brand: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#6a9bff',
-          500: '#3874ff',
-          600: '#1e50e6',
-          700: '#153bb8',
-          800: '#102e94',
-          900: '#0d2475',
-          neon: '#3874ff',
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+          neon: '#0284c7',
+        },
+        surface: {
+          DEFAULT: '#ffffff',
+          subtle: '#f8fafc',
+          muted: '#f1f5f9',
+          border: '#e2e8f0',
+        },
+        ink: {
+          950: '#020617',
+          900: '#0f172a',
+          800: '#1e293b',
+          700: '#334155',
+          600: '#475569',
+          500: '#64748b',
+          400: '#94a3b8',
         },
       },
       fontFamily: {

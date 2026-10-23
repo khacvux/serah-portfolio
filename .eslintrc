@@ -102,8 +102,7 @@
       ],
       "extends": [
         "plugin:tailwindcss/recommended",
-        "airbnb-typescript",
-        "plugin:prettier/recommended"
+        "airbnb-typescript"
       ],
       "parser": "astro-eslint-parser",
       "parserOptions": {
@@ -112,13 +111,7 @@
         "extraFileExtensions": [".astro"]
       },
       "rules": {
-        "prettier/prettier": [
-          "error",
-          {
-            "singleQuote": true,
-            "endOfLine": "auto"
-          }
-        ],
+        "prettier/prettier": "off",
         "import/extensions": [
           "error",
           "ignorePackages",

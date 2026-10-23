@@ -1,9 +1,10 @@
 ---
+import '@/styles/global.css';
+
 import CustomCursor from '@/components/CustomCursor.astro';
 import Footer from '@/components/Footer.astro';
 import Navbar from '@/components/Navbar.astro';
 import Preloader from '@/components/Preloader.astro';
-import '@/styles/global.css';
 import { AppConfig } from '@/utils/AppConfig';
 
 export interface Props {
@@ -19,7 +20,7 @@ const description = head?.description ?? AppConfig.description;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="vi" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +43,7 @@ const description = head?.description ?? AppConfig.description;
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-dark-950 text-zinc-100 antialiased selection:bg-brand-neon selection:text-dark-950 relative min-h-screen">
+  <body class="relative min-h-screen bg-[#f8fafc] text-ink-900 antialiased selection:bg-brand-200 selection:text-brand-800">
     <!-- GSAP Preloader Curtain -->
     <Preloader />
 
