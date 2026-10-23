@@ -1,0 +1,153 @@
+---
+interface ExperienceItem {
+  role: string;
+  company: string;
+  year: string;
+  location: string;
+  description: string;
+  highlight?: boolean;
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    role: 'Lead Designer & Creative Technologist',
+    company: 'Born Group',
+    year: '2021 → PRESENT',
+    location: 'London, UK / Remote',
+    description: 'Leading design systems and interactive web architecture for premier enterprise accounts, managing cross-functional squads of engineers and designers.',
+    highlight: true,
+  },
+  {
+    role: 'Senior Product Designer',
+    company: 'W12 Studios',
+    year: '2019 — 2021',
+    location: 'London, UK',
+    description: 'Spearheaded connected television OS interfaces and next-generation media playback experiences for top-tier global telecom brands.',
+  },
+  {
+    role: 'Interactive Designer & Prototyper',
+    company: 'Nimbletank',
+    year: '2018 — 2019',
+    location: 'London, UK',
+    description: 'Crafted award-winning mobile applications and interactive digital products with rapid GSAP prototyping and user validation.',
+  },
+  {
+    role: 'Digital Designer',
+    company: "Code D'azur",
+    year: '2015 — 2018',
+    location: 'Amsterdam / London',
+    description: 'Designed experiential brand campaigns, e-commerce storefronts, and digital identity platforms.',
+  },
+  {
+    role: 'Junior Designer',
+    company: 'Mullen Lowe Profero',
+    year: '2013 — 2015',
+    location: 'London, UK',
+    description: 'Collaborated on responsive web experiences, iconography sets, and digital brand collateral.',
+  },
+];
+---
+
+<section id="experience" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+  <!-- Section Title Header -->
+  <div class="experience-header border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
+        <span>&#123; 03 / CAREER JOURNEY &#125;</span>
+      </div>
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
+        MY EXPERIENCE
+      </h2>
+    </div>
+    <div class="text-xs font-mono text-zinc-400">
+      <span class="text-zinc-600">// ROLES &amp; RESIDENCIES</span> (2013 — PRESENT)
+    </div>
+  </div>
+
+  <!-- Interactive Timeline Table -->
+  <div class="space-y-4">
+    {experiences.map((item, index) => (
+      <div 
+        class="exp-row group p-6 sm:p-8 rounded-2xl bg-dark-900 border border-white/5 hover:border-brand-500/40 transition-all duration-400 hover:bg-dark-850 hover:shadow-[0_0_30px_rgba(0,255,135,0.06)]"
+      >
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <!-- Left: Index + Role & Company -->
+          <div class="flex items-start sm:items-center gap-4 sm:gap-6">
+            <span class="font-mono text-xs text-brand-neon/60 group-hover:text-brand-neon font-bold tracking-widest pt-1 sm:pt-0">
+              0{index + 1}
+            </span>
+            <div>
+              <div class="flex items-center gap-3 flex-wrap">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-neon transition-colors">
+                  {item.role}
+                </h3>
+                {item.highlight && (
+                  <span class="px-2 py-0.5 rounded-full bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-[10px] font-mono font-semibold">
+                    CURRENT
+                  </span>
+                )}
+              </div>
+              <p class="text-sm font-mono text-zinc-400 mt-1">
+                {item.company} <span class="text-zinc-600">•</span> <span class="text-zinc-500 text-xs">{item.location}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Year & Arrow -->
+          <div class="flex items-center justify-between sm:justify-end gap-6 pt-2 lg:pt-0 border-t border-zinc-800/50 lg:border-none">
+            <span class="font-mono text-xs sm:text-sm tracking-wider font-semibold text-zinc-400 group-hover:text-white transition-colors">
+              {item.year}
+            </span>
+            <div class="w-8 h-8 rounded-full border border-zinc-800 group-hover:border-brand-neon group-hover:bg-brand-neon group-hover:text-dark-950 text-zinc-500 flex items-center justify-center transition-all duration-300">
+              <svg class="w-4 h-4 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description revealed on detail -->
+        <p class="text-sm text-zinc-400 mt-4 pt-4 border-t border-white/5 leading-relaxed max-w-3xl">
+          {item.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from('.experience-header', {
+      scrollTrigger: {
+        trigger: '.experience-header',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    ScrollTrigger.batch('.exp-row', {
+      start: 'top 85%',
+      onEnter: (batch) => {
+        gsap.from(batch, {
+          y: 40,
+          opacity: 0,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: 'power3.out',
+          overwrite: true,
+        });
+      },
+      once: true,
+    });
+  });
+</script>

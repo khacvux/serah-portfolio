@@ -1,0 +1,189 @@
+---
+---
+<section id="contact" class="py-24 sm:py-36 px-6 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
+  <!-- Green ambient glow behind contact -->
+  <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+  <!-- Header -->
+  <div class="contact-header border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-neon animate-pulse"></span>
+        <span>&#123; 05 / GET IN TOUCH &#125;</span>
+      </div>
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
+        LET'S CONNECT
+      </h2>
+    </div>
+    <div class="text-xs font-mono text-zinc-400">
+      <span class="text-zinc-600">// AVAILABILITY</span> Q4 2026 &amp; Q1 2027
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <!-- Big Headline Callout -->
+    <div class="contact-left lg:col-span-8 space-y-8">
+      <div class="space-y-4">
+        <h3 class="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-[1.05]">
+          Have a project in mind? <br />
+          <span class="font-serif italic font-normal text-brand-neon text-5xl sm:text-7xl md:text-8xl">Let's craft</span> something iconic.
+        </h3>
+        <p class="text-lg sm:text-xl text-zinc-400 max-w-xl font-light leading-relaxed pt-2">
+          I am currently accepting select contract roles, strategic consulting, and full-time leadership opportunities.
+        </p>
+      </div>
+
+      <!-- Interactive Copy Email Box -->
+      <div class="pt-4 flex flex-col sm:flex-row sm:items-center gap-4">
+        <button 
+          id="copy-email-btn"
+          class="group relative inline-flex items-center justify-between gap-6 px-6 sm:px-8 py-5 rounded-2xl bg-dark-900 border border-white/10 hover:border-brand-neon/50 text-left transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,255,135,0.15)] cursor-pointer"
+          data-cursor="interactive"
+        >
+          <div class="flex flex-col">
+            <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">DIRECT EMAIL // CLICK TO COPY</span>
+            <span id="email-address" class="text-xl sm:text-2xl font-mono font-bold text-white group-hover:text-brand-neon transition-colors">
+              hello@serah.design
+            </span>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-dark-850 border border-white/10 group-hover:bg-brand-neon group-hover:text-dark-950 text-zinc-400 flex items-center justify-center transition-all duration-300">
+            <svg id="copy-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <svg id="check-icon" class="w-5 h-5 hidden text-dark-950 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+
+          <!-- Toast Tooltip -->
+          <span id="copy-toast" class="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 rounded bg-brand-neon text-dark-950 font-mono text-xs font-bold uppercase tracking-wider opacity-0 pointer-events-none transition-opacity duration-200">
+            COPIED TO CLIPBOARD!
+          </span>
+        </button>
+
+        <a 
+          href="mailto:hello@serah.design" 
+          class="px-6 py-5 rounded-2xl bg-brand-neon hover:bg-brand-400 text-dark-950 font-mono text-sm font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.6)]"
+          data-cursor="interactive"
+        >
+          <span>SEND EMAIL</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Details & Social Links -->
+    <div class="contact-right lg:col-span-4 flex flex-col space-y-8 bg-dark-900 border border-white/5 p-8 rounded-2xl">
+      <div class="space-y-2">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">DIRECT PHONE</span>
+        <div class="text-lg font-mono font-semibold text-white">
+          +44 (0) 7305 189812
+        </div>
+      </div>
+
+      <div class="space-y-2 border-t border-white/5 pt-6">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">LOCATION &amp; TIMEZONE</span>
+        <div class="text-sm text-zinc-300">
+          London, United Kingdom <br />
+          <span class="font-mono text-xs text-brand-neon">[ GMT / UTC+0 ]</span>
+        </div>
+      </div>
+
+      <div class="space-y-3 border-t border-white/5 pt-6">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">NETWORK &amp; CHANNELS</span>
+        <div class="flex flex-col space-y-2 font-mono text-xs">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between text-zinc-400 hover:text-brand-neon transition-colors py-1">
+            <span>TWITTER / X</span>
+            <span class="text-zinc-600 group-hover:text-brand-neon">↗</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between text-zinc-400 hover:text-brand-neon transition-colors py-1">
+            <span>LINKEDIN</span>
+            <span class="text-zinc-600 group-hover:text-brand-neon">↗</span>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between text-zinc-400 hover:text-brand-neon transition-colors py-1">
+            <span>GITHUB</span>
+            <span class="text-zinc-600 group-hover:text-brand-neon">↗</span>
+          </a>
+          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between text-zinc-400 hover:text-brand-neon transition-colors py-1">
+            <span>DRIBBBLE</span>
+            <span class="text-zinc-600 group-hover:text-brand-neon">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Copy email interaction
+    const copyBtn = document.getElementById('copy-email-btn');
+    const toast = document.getElementById('copy-toast');
+    const copyIcon = document.getElementById('copy-icon');
+    const checkIcon = document.getElementById('check-icon');
+
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('hello@serah.design');
+        if (toast && copyIcon && checkIcon) {
+          toast.classList.remove('opacity-0');
+          toast.classList.add('opacity-100');
+          copyIcon.classList.add('hidden');
+          checkIcon.classList.remove('hidden');
+
+          setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
+            copyIcon.classList.remove('hidden');
+            checkIcon.classList.add('hidden');
+          }, 2200);
+        }
+      } catch (err) {
+        console.error('Clipboard copy failed:', err);
+      }
+    });
+
+    // Animations
+    gsap.from('.contact-header', {
+      scrollTrigger: {
+        trigger: '.contact-header',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.contact-left', {
+      scrollTrigger: {
+        trigger: '.contact-left',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.contact-right', {
+      scrollTrigger: {
+        trigger: '.contact-right',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      delay: 0.15,
+      ease: 'power3.out',
+    });
+  });
+</script>

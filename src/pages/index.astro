@@ -1,27 +1,23 @@
 ---
-import type { IFrontmatter } from 'astro-boilerplate-components';
-
-import { CTA } from '@/partials/CTA';
-import { Hero } from '@/partials/Hero';
-import { ProjectList } from '@/partials/ProjectList';
-import { RecentPosts } from '@/partials/RecentPosts';
-import { Sponsors } from '@/partials/Sponsors';
+import About from '@/components/About.astro';
+import Contact from '@/components/Contact.astro';
+import Experience from '@/components/Experience.astro';
+import FeaturedProjects from '@/components/FeaturedProjects.astro';
+import Hero from '@/components/Hero.astro';
+import MarqueeTicker from '@/components/MarqueeTicker.astro';
+import Skillset from '@/components/Skillset.astro';
 import Base from '@/templates/Base.astro';
 import { AppConfig } from '@/utils/AppConfig';
-import { sortByDate } from '@/utils/Posts';
 
-const allPosts = await Astro.glob<IFrontmatter>('./posts/*.md');
-const sortedPosts = sortByDate(allPosts);
-const lastThreePosts = sortedPosts.slice(0, 3);
-
-const { title } = AppConfig;
-const { description } = AppConfig;
+const { title, description } = AppConfig;
 ---
 
 <Base head={{ title, description }}>
   <Hero />
-  <Sponsors />
-  <ProjectList />
-  <RecentPosts postList={lastThreePosts} />
-  <CTA />
+  <FeaturedProjects />
+  <MarqueeTicker />
+  <About />
+  <Experience />
+  <Skillset />
+  <Contact />
 </Base>

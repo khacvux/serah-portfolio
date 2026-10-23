@@ -1,0 +1,139 @@
+---
+---
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 bg-dark-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="#home" class="group flex items-center gap-3 text-white transition-opacity hover:opacity-80">
+      <div class="w-8 h-8 rounded-full bg-brand-neon/10 border border-brand-neon/30 flex items-center justify-center text-brand-neon font-mono font-bold text-sm group-hover:scale-105 transition-transform">
+        S
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-white flex items-center gap-1.5">
+          SERAH
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
+        </span>
+        <span class="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">DESIGN &amp; DEV</span>
+      </div>
+    </a>
+
+    <!-- Center / Status Badge -->
+    <div class="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-850 border border-white/5 text-[11px] font-mono text-zinc-400">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
+      </span>
+      <span class="text-zinc-300">AVAILABLE FOR NEW PROJECTS</span>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-8 text-xs font-mono">
+      <a href="#work" class="group flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors">
+        <span class="text-brand-neon/70 group-hover:text-brand-neon transition-colors">01</span>
+        <span>WORK</span>
+      </a>
+      <a href="#about" class="group flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors">
+        <span class="text-brand-neon/70 group-hover:text-brand-neon transition-colors">02</span>
+        <span>ABOUT</span>
+      </a>
+      <a href="#experience" class="group flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors">
+        <span class="text-brand-neon/70 group-hover:text-brand-neon transition-colors">03</span>
+        <span>EXPERIENCE</span>
+      </a>
+      <a href="#contact" class="group flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors">
+        <span class="text-brand-neon/70 group-hover:text-brand-neon transition-colors">04</span>
+        <span>CONTACT</span>
+      </a>
+
+      <!-- CTA Button -->
+      <a 
+        href="#contact" 
+        class="ml-4 px-4 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 hover:bg-brand-500 hover:text-dark-950 text-brand-neon font-mono font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.4)]"
+      >
+        LET'S TALK
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button id="mobile-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-zinc-400 hover:text-white focus:outline-none">
+      <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-x-0 top-20 bg-dark-950/95 border-b border-white/10 backdrop-blur-xl px-8 py-10 hidden flex-col space-y-6 lg:hidden shadow-2xl">
+    <div class="flex flex-col space-y-5 font-mono text-base">
+      <a href="#work" class="mobile-nav-link text-zinc-300 hover:text-brand-neon flex items-center justify-between border-b border-zinc-900 pb-3">
+        <span>WORK</span>
+        <span class="text-brand-neon text-xs">01</span>
+      </a>
+      <a href="#about" class="mobile-nav-link text-zinc-300 hover:text-brand-neon flex items-center justify-between border-b border-zinc-900 pb-3">
+        <span>ABOUT</span>
+        <span class="text-brand-neon text-xs">02</span>
+      </a>
+      <a href="#experience" class="mobile-nav-link text-zinc-300 hover:text-brand-neon flex items-center justify-between border-b border-zinc-900 pb-3">
+        <span>EXPERIENCE</span>
+        <span class="text-brand-neon text-xs">03</span>
+      </a>
+      <a href="#contact" class="mobile-nav-link text-zinc-300 hover:text-brand-neon flex items-center justify-between border-b border-zinc-900 pb-3">
+        <span>CONTACT</span>
+        <span class="text-brand-neon text-xs">04</span>
+      </a>
+    </div>
+
+    <div class="pt-4 flex items-center justify-between text-xs font-mono text-zinc-500">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-neon"></span>
+        <span>OPEN FOR ROLES</span>
+      </div>
+      <a href="mailto:hello@serah.design" class="text-brand-neon hover:underline">hello@serah.design</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  import gsap from 'gsap';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      if (isOpen) {
+        drawer?.classList.remove('hidden');
+        drawer?.classList.add('flex');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        gsap.from('#mobile-drawer .mobile-nav-link', {
+          y: 20,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.35,
+          ease: 'power2.out',
+        });
+      } else {
+        drawer?.classList.add('hidden');
+        drawer?.classList.remove('flex');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      }
+    }
+
+    toggleBtn?.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggleMenu();
+      });
+    });
+  });
+</script>

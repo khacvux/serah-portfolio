@@ -1,36 +1,63 @@
 ---
-import { Footer } from '@/partials/Footer';
-import { Navbar } from '@/partials/Navbar';
+import CustomCursor from '@/components/CustomCursor.astro';
+import Footer from '@/components/Footer.astro';
+import Navbar from '@/components/Navbar.astro';
+import Preloader from '@/components/Preloader.astro';
+import '@/styles/global.css';
 import { AppConfig } from '@/utils/AppConfig';
 
 export interface Props {
-  head: {
-    title: string;
-    description: string;
+  head?: {
+    title?: string;
+    description?: string;
   };
 }
 
-const {
-  head: { title, description },
-} = Astro.props as Props;
+const { head } = Astro.props as Props;
+const title = head?.title ?? AppConfig.title;
+const description = head?.description ?? AppConfig.description;
 ---
 
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name='description' content={description} />
-    <meta name='author' content={AppConfig.author} />
+    <meta name="description" content={description} />
+    <meta name="author" content={AppConfig.author} />
 
-    <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class='bg-slate-900 text-gray-100'>
+  <body class="bg-dark-950 text-zinc-100 antialiased selection:bg-brand-neon selection:text-dark-950 relative min-h-screen">
+    <!-- GSAP Preloader Curtain -->
+    <Preloader />
+
+    <!-- Interactive Custom Cursor follower -->
+    <CustomCursor />
+
+    <!-- Sticky Navigation Header -->
     <Navbar />
 
-    <slot></slot>
+    <!-- Main Content Area -->
+    <main id="main-content" class="relative">
+      <slot />
+    </main>
 
+    <!-- Footer -->
     <Footer />
   </body>
 </html>

@@ -1,0 +1,122 @@
+---
+interface SkillCategory {
+  number: string;
+  title: string;
+  description: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    number: '01',
+    title: 'UI DESIGN',
+    description: 'Crafting clean, accessible, and responsive user interfaces that delight users and scale effortlessly.',
+    skills: ['Design Systems', 'Micro-Interactions', 'Responsive Layouts', 'High-Fidelity Prototyping', 'Component Architecture'],
+  },
+  {
+    number: '02',
+    title: 'BRAND IDENTITY',
+    description: 'Forging memorable visual languages that express brand heart and soul across every digital touchpoint.',
+    skills: ['Art Direction', 'Editorial Typography', 'Visual Systems', 'Guidelines & Assets', 'Motion Branding'],
+  },
+  {
+    number: '03',
+    title: 'UX STRATEGY',
+    description: 'Transforming complex product requirements into intuitive user journeys through targeted research and data.',
+    skills: ['User Research', 'Wireframing', 'Journey Mapping', 'Usability Audits', 'Conversion Optimization'],
+  },
+  {
+    number: '04',
+    title: 'CREATIVE DEV',
+    description: 'Bridging the gap between design and production with fluid animations, solid engineering, and 60fps performance.',
+    skills: ['GSAP & ScrollTrigger', 'Astro & React', 'Tailwind CSS', 'TypeScript', 'Web Performance'],
+  },
+];
+---
+
+<section id="skills" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+  <!-- Section Title Header -->
+  <div class="skills-header border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
+        <span>&#123; 04 / CAPABILITIES &#125;</span>
+      </div>
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
+        MY SKILLSET
+      </h2>
+    </div>
+    <div class="text-xs font-mono text-zinc-400 max-w-md text-right">
+      Over the course of my career, I’ve strived to develop a diverse set of core capabilities.
+    </div>
+  </div>
+
+  <!-- 4-Column Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {skillCategories.map((cat) => (
+      <div class="skill-card group p-6 sm:p-8 rounded-2xl bg-dark-900 border border-white/5 hover:border-brand-500/40 transition-all duration-400 hover:bg-dark-850 flex flex-col justify-between space-y-6 hover:shadow-[0_0_25px_rgba(0,255,135,0.06)]">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-bold text-brand-neon px-2 py-0.5 rounded bg-brand-neon/10 border border-brand-neon/20">
+              {cat.number}
+            </span>
+            <span class="w-2 h-2 rounded-full bg-zinc-700 group-hover:bg-brand-neon transition-colors"></span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white group-hover:text-brand-neon transition-colors">
+            {cat.title}
+          </h3>
+
+          <p class="text-sm text-zinc-400 leading-relaxed font-light">
+            {cat.description}
+          </p>
+        </div>
+
+        <div class="border-t border-white/5 pt-4 space-y-2">
+          {cat.skills.map((skill) => (
+            <div class="flex items-center gap-2 text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="text-brand-neon/60">→</span>
+              <span>{skill}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from('.skills-header', {
+      scrollTrigger: {
+        trigger: '.skills-header',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    ScrollTrigger.batch('.skill-card', {
+      start: 'top 85%',
+      onEnter: (batch) => {
+        gsap.from(batch, {
+          y: 40,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: 'power3.out',
+          overwrite: true,
+        });
+      },
+      once: true,
+    });
+  });
+</script>

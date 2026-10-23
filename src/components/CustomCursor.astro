@@ -1,0 +1,81 @@
+---
+---
+<div id="cursor-dot" class="cursor-dot hidden lg:block"></div>
+<div id="cursor-follower" class="cursor-follower hidden lg:flex items-center justify-center">
+  <span id="cursor-text" class="opacity-0 transition-opacity duration-200 uppercase font-mono text-[10px] tracking-widest font-bold"></span>
+</div>
+
+<script>
+  import gsap from 'gsap';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Check if touch device
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const dot = document.getElementById('cursor-dot');
+    const follower = document.getElementById('cursor-follower');
+    const cursorText = document.getElementById('cursor-text');
+    if (!dot || !follower) return;
+
+    // Use gsap.quickTo for high-performance 60fps movement
+    const xDot = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3' });
+    const yDot = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3' });
+    const xFollower = gsap.quickTo(follower, 'x', { duration: 0.22, ease: 'power3' });
+    const yFollower = gsap.quickTo(follower, 'y', { duration: 0.22, ease: 'power3' });
+
+    let isVisible = false;
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isVisible) {
+        gsap.to([dot, follower], { opacity: 1, duration: 0.2 });
+        isVisible = true;
+      }
+      xDot(e.clientX);
+      yDot(e.clientY);
+      xFollower(e.clientX);
+      yFollower(e.clientY);
+    });
+
+    document.addEventListener('mouseleave', () => {
+      gsap.to([dot, follower], { opacity: 0, duration: 0.2 });
+      isVisible = false;
+    });
+
+    // Handle interactive elements
+    function setupCursorListeners() {
+      // Links & buttons
+      const interactiveEls = document.querySelectorAll('a, button, [data-cursor="interactive"]');
+      interactiveEls.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          follower?.classList.add('is-hovering');
+        });
+        el.addEventListener('mouseleave', () => {
+          follower?.classList.remove('is-hovering');
+        });
+      });
+
+      // Project cards
+      const projectEls = document.querySelectorAll('[data-cursor="project"]');
+      projectEls.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          follower?.classList.add('is-project');
+          if (cursorText) {
+            cursorText.textContent = 'VIEW';
+            cursorText.classList.remove('opacity-0');
+            cursorText.classList.add('opacity-100');
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          follower?.classList.remove('is-project');
+          if (cursorText) {
+            cursorText.classList.add('opacity-0');
+            cursorText.classList.remove('opacity-100');
+            cursorText.textContent = '';
+          }
+        });
+      });
+    }
+
+    setupCursorListeners();
+  });
+</script>

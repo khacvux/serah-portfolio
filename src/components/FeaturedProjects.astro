@@ -1,0 +1,208 @@
+---
+interface Project {
+  id: string;
+  number: string;
+  title: string;
+  category: string;
+  tags: string[];
+  year: string;
+  description: string;
+  image: string;
+  link: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 'wagamama',
+    number: '01',
+    title: 'Wagamama Website Redesign',
+    category: 'E-COMMERCE & ART DIRECTION',
+    tags: ['UI DESIGN', 'UX DESIGN', 'ART DIRECTION'],
+    year: '2024',
+    description: "Reimagining the Japanese dining chain's .com experience with bespoke Click & Collect flow and brutalist Swiss-inspired typography.",
+    image: '/assets/projects/wagamama.jpg',
+    link: '#',
+  },
+  {
+    id: 'verizon',
+    number: '02',
+    title: 'Verizon Stream TV',
+    category: 'CONNECTED TV & DESIGN SYSTEM',
+    tags: ['UI DESIGN', 'DESIGN SYSTEM', 'OS'],
+    year: '2023',
+    description: "Architecting a unified, intuitive interface for next-gen connected television platforms with responsive micro-interactions.",
+    image: '/assets/projects/verizon.jpg',
+    link: '#',
+  },
+  {
+    id: 'bt',
+    number: '03',
+    title: 'BT Future Customer Journey',
+    category: 'EXPERIENCE STRATEGY',
+    tags: ['UX DESIGN', 'ART DIRECTION', 'STRATEGY'],
+    year: '2023',
+    description: 'Transforming telecommunications service journeys through modular UI libraries, conversational touchpoints, and clear visual hierarchy.',
+    image: '/assets/projects/bt.jpg',
+    link: '#',
+  },
+  {
+    id: 'nielsen',
+    number: '04',
+    title: 'Nielsen IQ Enterprise Redesign',
+    category: 'DATA VISUALIZATION & B2B',
+    tags: ['UI DESIGN', 'DATA VIZ', 'DESIGN SYSTEM'],
+    year: '2022',
+    description: 'Modernizing complex market analytics with high-density data visualizations, streamlined dashboards, and dark-mode optimization.',
+    image: '/assets/projects/nielsen.jpg',
+    link: '#',
+  },
+  {
+    id: 'pnc',
+    number: '05',
+    title: 'PNC Bank Digital Platform',
+    category: 'FINTECH & BANKING',
+    tags: ['UI DESIGN', 'UX RESEARCH', 'FINTECH'],
+    year: '2022',
+    description: 'Defining an accessible, high-trust digital banking aesthetic that humanizes wealth management for diverse demographics.',
+    image: '/assets/projects/pnc.jpg',
+    link: '#',
+  },
+  {
+    id: 'trm',
+    number: '06',
+    title: 'TRM Bullion Mobile App',
+    category: 'TRADING & ASSET MANAGEMENT',
+    tags: ['MOBILE APP', 'FINTECH', 'PROTOTYPING'],
+    year: '2021',
+    description: 'Real-time precious metal spot trading mobile application with instant order routing, biometric security, and live charting.',
+    image: '/assets/projects/trm.jpg',
+    link: '#',
+  },
+];
+---
+
+<section id="work" class="py-24 sm:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+  <!-- Section Title Header -->
+  <div class="project-header border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 text-xs font-mono tracking-widest text-brand-neon uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-neon"></span>
+        <span>&#123; 01 / FEATURED WORK &#125;</span>
+      </div>
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
+        SELECTED PROJECTS
+      </h2>
+    </div>
+    <div class="text-xs font-mono text-zinc-400">
+      <span class="text-zinc-600">// CASE ARCHIVE</span> (2021 — 2026)
+    </div>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+    {projects.map((project) => (
+      <article 
+        class="project-card group flex flex-col space-y-5 bg-dark-900 border border-white/5 hover:border-brand-500/40 rounded-2xl p-4 sm:p-6 transition-all duration-500 hover:shadow-[0_0_35px_rgba(0,255,135,0.08)] cursor-pointer"
+        data-cursor="project"
+      >
+        <!-- Project Preview Image Container with Parallax Zoom -->
+        <div class="relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-xl overflow-hidden bg-dark-950">
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            class="project-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out brightness-95 group-hover:brightness-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+          
+          <!-- Top floating card meta -->
+          <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-xs font-mono pointer-events-none">
+            <span class="px-2.5 py-1 rounded-md bg-dark-950/80 backdrop-blur-md border border-white/10 text-brand-neon font-bold">
+              {project.number}
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-dark-950/80 backdrop-blur-md border border-white/10 text-zinc-300">
+              {project.year}
+            </span>
+          </div>
+
+          <!-- Bottom floating hover tag -->
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="px-3 py-1 rounded-full bg-brand-neon text-dark-950 font-mono text-[11px] font-bold tracking-wider flex items-center gap-1.5 shadow-lg">
+              <span>EXPLORE CASE</span>
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Project Info -->
+        <div class="flex flex-col space-y-3 pt-2">
+          <!-- Tags -->
+          <div class="flex items-center gap-2 flex-wrap text-[10px] font-mono tracking-wider">
+            {project.tags.map((tag) => (
+              <span class="px-2 py-0.5 rounded bg-brand-500/10 border border-brand-500/20 text-brand-neon">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Title and arrow -->
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-brand-neon transition-colors">
+              {project.title}
+            </h3>
+            <div class="w-7 h-7 rounded-full border border-zinc-800 group-hover:border-brand-neon group-hover:bg-brand-neon group-hover:text-dark-950 text-zinc-400 flex items-center justify-center transition-all shrink-0">
+              <svg class="w-3.5 h-3.5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-sm text-zinc-400 line-clamp-2 leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Animate section header
+    gsap.from('.project-header', {
+      scrollTrigger: {
+        trigger: '.project-header',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    // Animate project cards batch
+    ScrollTrigger.batch('.project-card', {
+      start: 'top 85%',
+      onEnter: (batch) => {
+        gsap.from(batch, {
+          y: 60,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.9,
+          ease: 'power3.out',
+          overwrite: true,
+        });
+      },
+      once: true,
+    });
+  });
+</script>
