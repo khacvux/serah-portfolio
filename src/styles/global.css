@@ -41,7 +41,7 @@
   background: #0284c7;
 }
 
-/* Custom Cursor for Light Theme */
+/* Custom Cursor for Light Theme — GSAP handles transforms via xPercent/yPercent */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -52,9 +52,9 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
-  transform: translate(-50%, -50%);
   box-shadow: 0 0 10px rgba(2, 132, 199, 0.6);
-  transition: opacity 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .cursor-follower {
@@ -68,7 +68,6 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,6 +77,8 @@
   letter-spacing: 0.05em;
   color: transparent;
   backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.25s ease,

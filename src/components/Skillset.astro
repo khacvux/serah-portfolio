@@ -67,7 +67,7 @@ const chartVisualizations = [
   <!-- 4-Column Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     {skillCategories.map((cat) => (
-      <div class="skill-card group p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 hover:border-sky-400 transition-all duration-400 hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] flex flex-col justify-between space-y-6 shadow-sm">
+      <div class="skill-card group p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 hover:border-sky-400 transition-colors duration-300 hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] flex flex-col justify-between space-y-6 shadow-sm">
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="font-mono text-xs font-bold text-sky-700 px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200">
@@ -140,23 +140,26 @@ const chartVisualizations = [
         trigger: '.skills-header',
         start: 'top 85%',
         toggleActions: 'play none none none',
+        once: true,
       },
-      y: 40,
-      opacity: 0,
+      y: 35,
+      autoAlpha: 0,
       duration: 0.8,
       ease: 'power3.out',
+      clearProps: 'transform,opacity,visibility',
     });
 
     ScrollTrigger.batch('.skill-card', {
       start: 'top 85%',
       onEnter: (batch) => {
         gsap.from(batch, {
-          y: 40,
-          opacity: 0,
+          y: 35,
+          autoAlpha: 0,
           stagger: 0.1,
           duration: 0.8,
           ease: 'power3.out',
-          overwrite: true,
+          clearProps: 'transform,opacity,visibility',
+          overwrite: 'auto',
         });
       },
       once: true,

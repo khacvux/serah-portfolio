@@ -75,11 +75,14 @@
     const track = document.getElementById('ticker-track');
     if (!track) return;
 
-    gsap.to(track, {
+    const tween = gsap.to(track, {
       xPercent: -50,
       ease: 'none',
       duration: 25,
       repeat: -1,
     });
+
+    track.addEventListener('mouseenter', () => tween.pause());
+    track.addEventListener('mouseleave', () => tween.play());
   });
 </script>

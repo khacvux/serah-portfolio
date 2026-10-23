@@ -102,7 +102,7 @@ const projects: BAProject[] = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
     {projects.map((project) => (
       <article 
-        class="project-card group flex flex-col space-y-5 bg-white border border-slate-200/90 hover:border-sky-400 rounded-2xl p-5 sm:p-7 transition-all duration-500 shadow-sm hover:shadow-[0_12px_32px_rgba(2,132,199,0.12)] cursor-pointer"
+        class="project-card group flex flex-col space-y-5 bg-white border border-slate-200/90 hover:border-sky-400 rounded-2xl p-5 sm:p-7 transition-colors duration-300 shadow-sm hover:shadow-[0_12px_32px_rgba(2,132,199,0.12)] cursor-pointer"
         data-cursor="project"
       >
         <!-- Preview Container with Parallax Zoom -->
@@ -193,12 +193,13 @@ const projects: BAProject[] = [
       start: 'top 85%',
       onEnter: (batch) => {
         gsap.from(batch, {
-          y: 60,
-          opacity: 0,
+          y: 50,
+          autoAlpha: 0,
           stagger: 0.15,
-          duration: 0.9,
+          duration: 0.85,
           ease: 'power3.out',
-          overwrite: true,
+          clearProps: 'transform,opacity,visibility',
+          overwrite: 'auto',
         });
       },
       once: true,

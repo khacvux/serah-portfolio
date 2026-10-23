@@ -17,6 +17,9 @@
     const cursorText = document.getElementById('cursor-text');
     if (!dot || !follower) return;
 
+    // Center both cursor elements using GSAP transforms to avoid CSS conflicts
+    gsap.set([dot, follower], { xPercent: -50, yPercent: -50 });
+
     // Use gsap.quickTo for high-performance 60fps movement
     const xDot = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3' });
     const yDot = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3' });
@@ -27,7 +30,7 @@
 
     window.addEventListener('mousemove', (e) => {
       if (!isVisible) {
-        gsap.to([dot, follower], { opacity: 1, duration: 0.2 });
+        gsap.to([dot, follower], { autoAlpha: 1, duration: 0.2, overwrite: 'auto' });
         isVisible = true;
       }
       xDot(e.clientX);
@@ -37,7 +40,7 @@
     });
 
     document.addEventListener('mouseleave', () => {
-      gsap.to([dot, follower], { opacity: 0, duration: 0.2 });
+      gsap.to([dot, follower], { autoAlpha: 0, duration: 0.2, overwrite: 'auto' });
       isVisible = false;
     });
 

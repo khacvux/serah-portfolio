@@ -39,6 +39,9 @@
 
 <script>
   import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   window.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
@@ -47,17 +50,29 @@
     
     if (!preloader || !loaderNum || !loaderBar) return;
 
+    // Check if user already saw preloader in this session
+    if (sessionStorage.getItem('dieuthao_loaded')) {
+      preloader.style.display = 'none';
+      window.dispatchEvent(new CustomEvent('preloaderDone'));
+      setTimeout(() => ScrollTrigger.refresh(), 50);
+      return;
+    }
+
+    // Disable scrolling while preloader is active to protect ScrollTrigger coordinates
+    document.body.style.overflow = 'hidden';
+
     const countObj = { val: 0 };
     const tl = gsap.timeline({
       onComplete: () => {
         sessionStorage.setItem('dieuthao_loaded', 'true');
-        window.dispatchEvent(new CustomEvent('preloaderDone'));
+        document.body.style.overflow = '';
+        ScrollTrigger.refresh();
       }
     });
 
     tl.to(countObj, {
       val: 100,
-      duration: 1.6,
+      duration: 1.5,
       ease: 'power2.inOut',
       onUpdate: () => {
         const rounded = Math.round(countObj.val);
@@ -67,9 +82,13 @@
     })
     .to(preloader, {
       yPercent: -100,
-      duration: 0.9,
+      duration: 0.85,
       ease: 'power4.inOut',
-      delay: 0.1
+      delay: 0.05,
+      onStart: () => {
+        // Trigger hero entrance synchronously as the preloader curtain rises
+        window.dispatchEvent(new CustomEvent('preloaderDone'));
+      }
     })
     .set(preloader, {
       display: 'none'

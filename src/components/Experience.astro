@@ -74,7 +74,7 @@ const timeline: ExperienceItem[] = [
   <div class="space-y-4">
     {timeline.map((item, index) => (
       <div 
-        class="exp-row group p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 hover:border-sky-400 transition-all duration-400 hover:bg-sky-50/20 shadow-sm hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)]"
+        class="exp-row group p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 hover:border-sky-400 transition-colors duration-300 hover:bg-sky-50/20 shadow-sm hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)]"
       >
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <!-- Left: Index + Role & Organization -->
@@ -133,23 +133,26 @@ const timeline: ExperienceItem[] = [
         trigger: '.experience-header',
         start: 'top 85%',
         toggleActions: 'play none none none',
+        once: true,
       },
-      y: 40,
-      opacity: 0,
+      y: 35,
+      autoAlpha: 0,
       duration: 0.8,
       ease: 'power3.out',
+      clearProps: 'transform,opacity,visibility',
     });
 
     ScrollTrigger.batch('.exp-row', {
       start: 'top 85%',
       onEnter: (batch) => {
         gsap.from(batch, {
-          y: 40,
-          opacity: 0,
-          stagger: 0.12,
+          y: 35,
+          autoAlpha: 0,
+          stagger: 0.1,
           duration: 0.8,
           ease: 'power3.out',
-          overwrite: true,
+          clearProps: 'transform,opacity,visibility',
+          overwrite: 'auto',
         });
       },
       once: true,

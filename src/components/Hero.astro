@@ -72,31 +72,38 @@
   import gsap from 'gsap';
 
   function initHeroAnimations() {
+    if ((window as any)._heroAnimated) return;
+    (window as any)._heroAnimated = true;
+
     const tl = gsap.timeline();
 
     tl.from('.hero-title-1', {
       yPercent: 120,
-      duration: 1.1,
+      duration: 1.0,
       ease: 'power4.out',
-      delay: 0.1,
+      clearProps: 'transform',
     })
     .from('.hero-title-2', {
       yPercent: 120,
-      duration: 1.1,
+      duration: 1.0,
       ease: 'power4.out',
-    }, '-=0.9')
+      clearProps: 'transform',
+    }, '-=0.85')
     .from('.hero-anim-item', {
-      y: 35,
-      opacity: 0,
-      stagger: 0.15,
+      y: 30,
+      autoAlpha: 0,
+      stagger: 0.12,
       duration: 0.8,
       ease: 'power3.out',
+      clearProps: 'transform,opacity,visibility',
     }, '-=0.7');
   }
 
-  if (sessionStorage.getItem('dieuthao_loaded')) {
-    initHeroAnimations();
-  } else {
-    window.addEventListener('preloaderDone', initHeroAnimations);
-  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('dieuthao_loaded')) {
+      initHeroAnimations();
+    } else {
+      window.addEventListener('preloaderDone', initHeroAnimations, { once: true });
+    }
+  });
 </script>
